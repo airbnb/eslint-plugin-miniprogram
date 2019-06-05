@@ -1,0 +1,78 @@
+{
+  "name": "eslint-plugin-miniprogram",
+  "keywords": [
+    "eslint",
+    "plugin",
+    "mini-program",
+    "mini-app"
+  ],
+  "engines": {
+    "node": ">= 8.0"
+  },
+  "repository": "git@github.com:airbnb/eslint-plugin-miniprogram.git",
+  "author": "Chong Ma <chong.ma@airbnb.com>",
+  "contributors": [
+    "Jiayu Liu <jiayu.liu@airbnb.com>"
+  ],
+  "license": "MIT",
+  "private": false,
+  "version": "0.0.1",
+  "description": "eslint plugin for mini programs",
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "start": "npm run build -- --watch",
+    "lint": "eslint .",
+    "build": "tsc -p .",
+    "clean": "rimraf lib",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/eslint": "^4.16.6",
+    "@types/eslint-scope": "^3.7.0",
+    "@types/eslint-visitor-keys": "^1.0.0",
+    "@types/jest": "^24.0.13",
+    "@types/json5": "^0.0.30",
+    "@types/lodash": "4.14.123",
+    "@types/node": "^12.0.4",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "typescript": "~3.4.0"
+  },
+  "dependencies": {
+    "@tinajs/mina-sfc": "^0.2.2",
+    "eslint-plugin-vue": "^5.2.2",
+    "json5": "^2.1.0",
+    "lodash": "^4.17.11",
+    "vue-eslint-parser": "^6.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,md,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{ts,js}": [
+      "eslint"
+    ]
+  }
+}

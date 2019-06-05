@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "pretty": true,
+    "removeComments": false,
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "lib",
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "alwaysStrict": true,
+    "target": "es5",
+    "lib": ["es6"]
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["**/__tests__/**"]
+}
