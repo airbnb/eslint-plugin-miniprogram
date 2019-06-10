@@ -1,6 +1,6 @@
 # eslint-plugin-miniprogram
 
-![npm](https://img.shields.io/npm/v/eslint-plugin-miniprogram.svg)
+[![npm](https://img.shields.io/npm/v/eslint-plugin-miniprogram.svg)](https://www.npmjs.com/package/eslint-plugin-miniprogram)
 [![Build Status](https://travis-ci.com/airbnb/eslint-plugin-miniprogram.svg?branch=master)](https://travis-ci.com/airbnb/eslint-plugin-miniprogram)
 
 ## About
