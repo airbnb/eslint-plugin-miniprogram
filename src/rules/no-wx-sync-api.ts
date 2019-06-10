@@ -9,6 +9,11 @@
 // whitelisted because there's only sync version
 const whitelist: string[] = ["getLaunchOptionsSync", "getAccountInfoSync"];
 
+export const isSyncApi = (propertyName: string) =>
+  propertyName &&
+  propertyName.endsWith("Sync") &&
+  !whitelist.find(i => i === propertyName);
+
 export const noWxSyncApi = {
   meta: {
     type: "suggestion",
@@ -26,13 +31,7 @@ export const noWxSyncApi = {
       MemberExpression(node: any) {
         const objectName = node.object.name;
         const propertyName = node.property.name;
-        if (
-          objectName === "wx" &&
-          !node.computed &&
-          propertyName &&
-          propertyName.endsWith("Sync") &&
-          !whitelist.find(i => i === propertyName)
-        ) {
+        if (objectName === "wx" && !node.computed && isSyncApi(propertyName)) {
           context.report({
             node,
             message: `wx.${propertyName} may cause performance issue. Use wx.${propertyName.replace(
