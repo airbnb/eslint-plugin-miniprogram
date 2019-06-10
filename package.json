@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "eslint plugin for mini programs",
   "main": "lib/index.js",
   "files": [
