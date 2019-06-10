@@ -17,7 +17,7 @@ For developing with `.mina` files, you can refer to [mina-webpack](https://githu
 
 ## Rules
 
-### Prefer wx `promisify` (`prefer-wx-promisfy`)
+### Prefer wx `promisify` (`prefer-wx-promisify`)
 
 WeChat Mini Program introduce a new style of callbacks whick could be a new
 [callback hell](http://callbackhell.com/).
@@ -97,7 +97,7 @@ await promisify(wx.setStorage)({
 
 #### Related Rules
 
-- prefer-wx-promisfy
+- prefer-wx-promisify
 
 ### No unused component (`no-unused-components`)
 
