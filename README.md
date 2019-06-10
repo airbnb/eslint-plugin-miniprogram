@@ -15,7 +15,60 @@ This ESLint plugin exists to help you lint your WeChat Mini Program code.
 
 For developing with `.mina` files, you can refer to [mina-webpack](https://github.com/tinajs/mina-webpack) repo for details.
 
+## How to use
+
+Install the plugin:
+
+```bash
+npm install --save-dev eslint eslint-plugin-miniprogram
+```
+
+In your `.eslintrc.js` file, include this plugin:
+
+```js
+// .eslintrc.js
+module.exposts = {
+  // you'll need vue-eslint-parser for `.mina` files
+  parser: "vue-eslint-parser",
+  plugins: [
+    // other plugins
+    "prettier",
+    // include this plugin
+    "miniprogram"
+  ]
+};
+```
+
+Enable rules:
+
+```js
+// .eslintrc.js
+module.exposts = {
+  rules: {
+    // other rules
+    "miniprogram/attribute-event-name-case": ["error", "camel"],
+    "miniprogram/component-name": ["error"],
+    "miniprogram/no-unused-components": ["error"],
+    "miniprogram/no-unregistered-components": ["error"],
+    "miniprogram/no-wx-sync-api": ["warn"],
+    "miniprogram/prefer-wx-promisify": ["error"],
+    "miniprogram/config-json-validate-fields": ["error"]
+    // rest of the rules
+  }
+};
+```
+
 ## Rules
+
+### List of rules included
+
+- `miniprogram/attribute-event-name-case`
+- `miniprogram/component-name`
+- `miniprogram/no-unused-components`
+- `miniprogram/no-unregistered-components`
+- `miniprogram/no-wx-sync-api`
+- `miniprogram/prefer-wx-promisify`
+- `miniprogram/config-json-validate-fields`
 
 ### Prefer wx `promisify` (`prefer-wx-promisify`)
 
