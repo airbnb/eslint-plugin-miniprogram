@@ -79,7 +79,7 @@ const getStaticPropertyName = (node: any) => {
 
 const INVALID_KEYS = ["success", "fail", "complete"];
 
-export const preferWxPromisfy = {
+export const preferWxPromisify = {
   meta: {
     type: "suggestion",
 
@@ -113,7 +113,7 @@ export const preferWxPromisfy = {
           context.report({
             node,
             loc: node.key.loc,
-            message: `Prefer \`promisfy\` over wx style callbacks. Unexpected callback \`${name}\`.`,
+            message: `Prefer \`promisify\` over wx style callbacks. Unexpected callback \`${name}\`.`,
             data: { name }
           });
         }
