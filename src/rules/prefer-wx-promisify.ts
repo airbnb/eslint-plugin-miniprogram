@@ -39,7 +39,7 @@
  * @param {ASTNode} node - The node to get.
  * @returns {string|null} The property name if static. Otherwise, null.
  */
-const getStaticPropertyName = (node: any) => {
+const getStaticPropertyName = (node: any): string | null => {
   let prop;
 
   switch (node && node.type) {
@@ -52,7 +52,8 @@ const getStaticPropertyName = (node: any) => {
       prop = node.property;
       break;
 
-    // no default
+    default:
+      break;
   }
 
   switch (prop && prop.type) {
@@ -71,7 +72,8 @@ const getStaticPropertyName = (node: any) => {
       }
       break;
 
-    // no default
+    default:
+      break;
   }
 
   return null;
@@ -82,7 +84,6 @@ const INVALID_KEYS = ["success", "fail", "complete"];
 export const preferWxPromisify = {
   meta: {
     type: "suggestion",
-
     docs: {
       description:
         "Prefer promify over wx style callbacks including success, fail and complete",
@@ -90,7 +91,6 @@ export const preferWxPromisify = {
       recommended: false,
       url: "https://github.com/airbnb/eslint-plugin-miniprogram"
     },
-
     schema: []
   },
 
