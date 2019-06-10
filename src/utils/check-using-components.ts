@@ -50,7 +50,7 @@ export type CheckUsingComponentsIntent =
 
 const RULE_DESCRIPTION: Record<CheckUsingComponentsIntent, string> = {
   componentName: "Enforce specific casing for the component naming style",
-  unusedComponent: "Check unsued components",
+  unusedComponent: "Check unused components",
   unregisteredComponent: "Check unregistered components"
 };
 
@@ -99,7 +99,7 @@ export const checkUsingComponents = (intent: CheckUsingComponentsIntent) => ({
         if (expectName !== componentName) {
           context.report({
             loc: DEFAULT_LOC,
-            message: `prefer \`${expectName}\` to \`${componentName}\` for \`${componentPath}\``
+            message: `prefer \`${expectName}\` instead of \`${componentName}\` for \`${componentPath}\``
           });
         }
       }
