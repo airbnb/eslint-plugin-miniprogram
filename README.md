@@ -3,36 +3,77 @@
 [![npm](https://img.shields.io/npm/v/eslint-plugin-miniprogram.svg)](https://www.npmjs.com/package/eslint-plugin-miniprogram)
 [![Build Status](https://travis-ci.com/airbnb/eslint-plugin-miniprogram.svg?branch=master)](https://travis-ci.com/airbnb/eslint-plugin-miniprogram)
 
+[中文版](./README_cn.md)
+
 ## About
 
-### Status
-
-⚠️ work in progress
-
-This ESLint plugin exists to help you lint your WeChat Mini Program code.
+This ESLint plugin exists to help you lint your Mini Program code.
 
 ### `.mina` files
 
 For developing with `.mina` files, you can refer to [mina-webpack](https://github.com/tinajs/mina-webpack) repo for details.
 
+## How to use
+
+Install the plugin:
+
+```bash
+npm install --save-dev eslint eslint-plugin-miniprogram
+```
+
+In your `.eslintrc.js` file, include this plugin:
+
+```js
+// .eslintrc.js
+module.exposts = {
+  // you'll need vue-eslint-parser for `.mina` files
+  parser: "vue-eslint-parser",
+  plugins: [
+    // amongst other other plugins, e.g. prettier
+    "prettier",
+    // include this plugin
+    "miniprogram"
+  ]
+};
+```
+
+Enable rules:
+
+```js
+// .eslintrc.js
+module.exposts = {
+  rules: {
+    // other rules
+    "miniprogram/attribute-event-name-case": ["error", "camel"],
+    "miniprogram/component-name": ["error"],
+    "miniprogram/no-unused-components": ["error"],
+    "miniprogram/no-unregistered-components": ["error"],
+    "miniprogram/no-wx-sync-api": ["warn"],
+    "miniprogram/prefer-wx-promisify": ["error"],
+    "miniprogram/config-json-validate-fields": ["error"]
+    // rest of the rules
+  }
+};
+```
+
 ## Rules
 
 ### Prefer wx `promisify` (`prefer-wx-promisify`)
 
-WeChat Mini Program introduce a new style of callbacks whick could be a new
+Mini Program API introduces a new style of callbacks whick could be a new
 [callback hell](http://callbackhell.com/).
 
-Please use `promisify` to enter the Promise world.
+You can use `promisify` to enter the Promise world.
 
 #### Details
 
-Prefer `promify` over wx style callbacks including `success`, `fail` and `complete`.
+Prefer `promisify` over wx style callbacks including `success`, `fail` and `complete`.
 
 Examples of **incorrect** code for this rule:
 
 ```ts
 wx.request({
-  url: "https://api.airbnb.cn/",
+  url: "https://www.example.com",
   success(res) {
     console.log(res);
   },
@@ -50,7 +91,7 @@ Examples of **correct** code for this rule:
 ```ts
 try {
   const res = await promisify(wx.request)({
-    url: "https://api.airbnb.cn/"
+    url: "https://www.example.com",
   });
   console.log(res);
 } catch (error) {
@@ -62,7 +103,7 @@ try {
 
 #### Related Rules
 
-- no-wx-sync-api
+- `no-wx-sync-api`
 
 ### Disallow the use of wx.xxSync API (`no-wx-sync-api`)
 
@@ -97,7 +138,7 @@ await promisify(wx.setStorage)({
 
 #### Related Rules
 
-- prefer-wx-promisify
+- `prefer-wx-promisify`
 
 ### No unused component (`no-unused-components`)
 
@@ -151,9 +192,9 @@ Bad case:
 | `navigationBarTextStyle` values | can only be `black`/`white`                                                                                                                                                                       |
 | `backgroundTextStyle` values    | can only be `dark`/`light`                                                                                                                                                                        |
 
-Different Mini Program runtime has different required fields in config file ( `.json` file ).
+Different Mini Program runtimes have different required fields in config (`.json`) file.
 
-Should add `"conponent": true` if using `Component` function.
+You should add `"conponent": true` if you are using `Component` function.
 
 ```ts
 // comp.js
@@ -163,11 +204,11 @@ Component({});
 ```html
 <!-- comp.mina -->
 <config>
-  { "component": true, "usingComponents": {} }
+{ "component": true, "usingComponents": {} }
 </config>
 ```
 
-Should not use `"conponent": true` if using `Page` function.
+You should not use `"conponent": true` in `Page` function.
 
 ```ts
 // page.js
@@ -177,16 +218,16 @@ Page({});
 ```html
 <!-- page.mina -->
 <config>
-  { "usingComponents": {} }
+{ "usingComponents": {} }
 </config>
 ```
 
-Should always add `"usingComponents": {}`.
+You should always add `"usingComponents": {}`, even if it's empty.
 
 ```html
 <!-- comp.mina -->
 <config>
-  { "component": true, "usingComponents": {} }
+{ "component": true, "usingComponents": {} }
 </config>
 ```
 
@@ -200,8 +241,8 @@ Some use cases:
 
 ```json5
 {
-  comp: "/path/to/myComp.mina", // should be `my-comp
-  comp: "/path/to/anotherComp/index.mina" // should be `another-comp`
+  "comp": "/path/to/myComp.mina", // should be `my-comp
+  "comp": "/path/to/anotherComp/index.mina" // should be `another-comp`
 }
 ```
 
