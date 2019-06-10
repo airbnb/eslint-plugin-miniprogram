@@ -15,12 +15,9 @@ const isBuildInComponents = (name: string) =>
   BUILD_IN_COMPONENTS.includes(name);
 
 const trimTail = (name: string) =>
-  path
-    .basename(name)
-    .replace(/\.mina$/, "")
-    .replace(/\/index$/, "");
+  path.basename(name.replace(/\.mina$/, "").replace(/\/index$/, ""));
 
-const getAirbnbSpecificPrefix = (componentPath: string) => {
+const getScopedSpecificPrefixHandling = (componentPath: string) => {
   const tokens = componentPath.split("/")[1].split("-");
   const prefix = tokens[tokens.length - 1];
   return prefix;
@@ -35,8 +32,8 @@ export const getExpectedComponentName = (
   name = kebabCase(name);
   // special handling for airbnb components
   // TODO make this configurable
-  if (componentPath.startsWith("~@irbnb/")) {
-    const prefix = getAirbnbSpecificPrefix(componentPath);
+  if (componentPath.startsWith("~@")) {
+    const prefix = getScopedSpecificPrefixHandling(componentPath);
     name = `${prefix}-${name}`;
   }
   return name;
