@@ -46,13 +46,16 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^2.4.0",
     "jest": "^24.8.0",
-    "lint-staged": "^8.1.7",
     "prettier": "^1.17.1",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
     "typescript": "~3.4.0"
+  },
+  "peerDependencies": {
+    "vue-eslint-parser": "~6.0.0",
+    "eslint-plugin-vue": "~5.2.0",
+    "eslint": "~5.16.0"
   },
   "dependencies": {
     "@tinajs/mina-sfc": "^0.2.2",
@@ -60,19 +63,5 @@
     "json5": "^2.1.0",
     "lodash": "^4.17.11",
     "vue-eslint-parser": "^6.0.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,js,md,json}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{ts,js}": [
-      "eslint"
-    ]
   }
 }
