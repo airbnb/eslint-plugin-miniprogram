@@ -86,7 +86,7 @@ export const preferWxPromisify = {
     type: "suggestion",
     docs: {
       description:
-        "Prefer promify over wx style callbacks including success, fail and complete",
+        "Prefer promisify over wx style callbacks including success, fail and complete",
       category: "WeChat Mini Program Best Practices",
       recommended: false,
       url: "https://github.com/airbnb/eslint-plugin-miniprogram"
