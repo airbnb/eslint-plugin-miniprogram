@@ -53,9 +53,9 @@
     "typescript": "^3.5.3"
   },
   "peerDependencies": {
-    "vue-eslint-parser": "~6.0.0",
-    "eslint-plugin-vue": "~5.2.0",
-    "eslint": "~5.16.0"
+    "vue-eslint-parser": "~6.0.4",
+    "eslint-plugin-vue": "~5.2.3",
+    "eslint": "~6.1.0"
   },
   "dependencies": {
     "@tinajs/mina-sfc": "^0.2.2",
