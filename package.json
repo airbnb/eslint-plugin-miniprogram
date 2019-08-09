@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@tinajs/mina-sfc": "^0.2.2",
-    "eslint-plugin-vue": "^5.2.2",
+    "eslint-plugin-vue": "^5.2.3",
     "json5": "^2.1.0",
     "lodash": "^4.17.15",
     "vue-eslint-parser": "^6.0.4"
