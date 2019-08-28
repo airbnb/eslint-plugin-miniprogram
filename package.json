@@ -38,10 +38,10 @@
     "@types/json5": "^0.0.30",
     "@types/lodash": "^4.14.136",
     "@types/node": "^12.7.1",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "cross-env": "^5.2.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
@@ -55,7 +55,7 @@
   "peerDependencies": {
     "vue-eslint-parser": "~6.0.4",
     "eslint-plugin-vue": "~5.2.3",
-    "eslint": "~6.1.0"
+    "eslint": "~6.2.0"
   },
   "dependencies": {
     "@tinajs/mina-sfc": "^0.2.2",
