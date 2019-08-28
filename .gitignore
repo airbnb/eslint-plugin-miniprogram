@@ -61,6 +61,3 @@ typings/
 .next
 
 lib/
-
-package-lock.json
-yarn.lock
