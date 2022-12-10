@@ -1,5 +1,3 @@
-import { checkUsingComponents } from "../utils/check-using-components";
+import { checkUsingComponents } from '../utils/check-using-components';
 
-export const noUnregisteredComponents = checkUsingComponents(
-  "unregisteredComponent"
-);
+export const noUnregisteredComponents = checkUsingComponents('unregisteredComponent');
