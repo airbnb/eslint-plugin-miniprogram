@@ -1,3 +1,3 @@
-import { checkUsingComponents } from "../utils/check-using-components";
+import { checkUsingComponents } from '../utils/check-using-components';
 
-export const componentName = checkUsingComponents("componentName");
+export const componentName = checkUsingComponents('componentName');

@@ -43,12 +43,12 @@ const getStaticPropertyName = (node: any): string | null => {
   let prop;
 
   switch (node && node.type) {
-    case "Property":
-    case "MethodDefinition":
+    case 'Property':
+    case 'MethodDefinition':
       prop = node.key;
       break;
 
-    case "MemberExpression":
+    case 'MemberExpression':
       prop = node.property;
       break;
 
@@ -57,16 +57,16 @@ const getStaticPropertyName = (node: any): string | null => {
   }
 
   switch (prop && prop.type) {
-    case "Literal":
+    case 'Literal':
       return String(prop.value);
 
-    case "TemplateLiteral":
+    case 'TemplateLiteral':
       if (prop.expressions.length === 0 && prop.quasis.length === 1) {
         return prop.quasis[0].value.cooked;
       }
       break;
 
-    case "Identifier":
+    case 'Identifier':
       if (!node.computed) {
         return prop.name;
       }
@@ -79,19 +79,18 @@ const getStaticPropertyName = (node: any): string | null => {
   return null;
 };
 
-const INVALID_KEYS = ["success", "fail", "complete"];
+const INVALID_KEYS = ['success', 'fail', 'complete'];
 
 export const preferWxPromisify = {
   meta: {
-    type: "suggestion",
+    type: 'suggestion',
     docs: {
-      description:
-        "Prefer promisify over wx style callbacks including success, fail and complete",
-      category: "WeChat Mini Program Best Practices",
+      description: 'Prefer promisify over wx style callbacks including success, fail and complete',
+      category: 'WeChat Mini Program Best Practices',
       recommended: false,
-      url: "https://github.com/airbnb/eslint-plugin-miniprogram"
+      url: 'https://github.com/airbnb/eslint-plugin-miniprogram',
     },
-    schema: []
+    schema: [],
   },
 
   create(context: any) {
@@ -100,7 +99,7 @@ export const preferWxPromisify = {
         const name = getStaticPropertyName(node);
 
         // Skip destructuring.
-        if (node.parent.type !== "ObjectExpression") {
+        if (node.parent.type !== 'ObjectExpression') {
           return;
         }
 
@@ -114,10 +113,10 @@ export const preferWxPromisify = {
             node,
             loc: node.key.loc,
             message: `Prefer \`promisify\` over wx style callbacks. Unexpected callback \`${name}\`.`,
-            data: { name }
+            data: { name },
           });
         }
-      }
+      },
     };
-  }
+  },
 };
