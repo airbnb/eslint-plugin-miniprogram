@@ -25,7 +25,7 @@ In your `.eslintrc.js` file, include this plugin:
 
 ```js
 // .eslintrc.js
-module.exposts = {
+module.exports = {
   // you'll need vue-eslint-parser for `.mina` files
   parser: "vue-eslint-parser",
   plugins: [
@@ -41,7 +41,7 @@ Enable rules:
 
 ```js
 // .eslintrc.js
-module.exposts = {
+module.exports = {
   rules: {
     // other rules
     "miniprogram/attribute-event-name-case": ["error", "camel"],
@@ -194,7 +194,7 @@ Bad case:
 
 Different Mini Program runtimes have different required fields in config (`.json`) file.
 
-You should add `"conponent": true` if you are using `Component` function.
+You should add `"component": true` if you are using `Component` function.
 
 ```ts
 // comp.js
@@ -208,7 +208,7 @@ Component({});
 </config>
 ```
 
-You should not use `"conponent": true` in `Page` function.
+You should not use `"component": true` in `Page` function.
 
 ```ts
 // page.js
